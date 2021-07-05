@@ -1,9 +1,20 @@
+import * as types from "../types";
+
 const initialState = {
-  patients: [],
+  all: [],
 };
 
 const patientReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case types.GET_ALL_PATIENTS_SUCCESS:
+      return {
+        ...state,
+        all: [...action.payload],
+      };
+
+    default:
+      return state;
+  }
 };
 
 export default patientReducer;

@@ -1,24 +1,19 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
+import { Button } from "antd";
+import { Switch, Route } from "react-router-dom";
+import Patients from "./screens/patients/Patients";
+import PatientsRecords from "./screens/patients/PatientsRecords";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Switch>
+        <Route path="/patients/:id" component={PatientsRecords} />
+        <Route path="/patients" component={Patients} />
+        <Route path="/" component={Patients} />
+      </Switch>
+    </React.Fragment>
   );
 }
 
